@@ -5,9 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./exam_project.js"></script>
+    <link rel="stylesheet" href="exam_project_style.css">
     <title>Weather Forecast</title>
+
 </head>
 <body>
-    
+    <div class="main_container">
+
+        <div class="header">
+            <div class="header_text">
+               MY WEATHER
+            </div>
+            
+            <form>
+                <input type="text" id="location" placeholder="location"><span class="lens_unicode">&#128269;</span>
+            </form>
+
+        </div>
+
+
+
+        <div class="menu">
+            <div class="menu_today">Today</div>
+            <div class="menu_5day">5-day forecast</div>
+
+        </div>
+
+
+        <div class="info_block">
+            <div class="current_weather">
+                <div class="first_block_header">CURRENT WEATHER</div>
+                <div class="condition">&#9728;sunny</div>
+            </div>
+            <div class="hourly">HOURLY</div>
+            <div class="nearby_places">NEARBY PLACES</div>
+        </div>
+
+    </div>
 </body>
 </html>
