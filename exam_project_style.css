@@ -12,6 +12,7 @@ body{
     width: 100%;
     height: 1000px;
     grid-template-rows: 7% 5% 88%;
+    
 
 
 }
@@ -49,7 +50,7 @@ form{
 
 .lens_unicode{
     position: relative;
-    right:20px;
+    right:25px;
     
 }
 
@@ -90,13 +91,226 @@ form{
     grid-area:2/2 ;
     background-color: rgb(230, 230, 230);
     display: grid;
-}
+    grid-template-rows: 30% 70%;
+    grid-template-columns: 25%, repeat(5,15%);
 
+}
+.first_block_header{
+    grid-area: 1/1;
+    font-size: 20px;
+    font-weight: bold;
+    color:rgb(45, 166, 170);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.condition{
+    grid-area: 2/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.condition img{
+    position: relative;
+    top: -25px;
+    left: 20px;
+}
+.condition_description{
+    position: relative;
+    top: 10px;
+    left: -25px;
+    font-size: 17px;
+    font-weight: 200;
+    color:grey;
+}
+.temperature {
+    grid-area: 2/3;
+    display: inline-block;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    font-weight: 500;
+}
+.real_feel{
+    grid-area: 2/3;
+    display: inline-block;
+    height: 30px;
+    margin-top:50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:grey;
+}
+ul{
+    grid-area: 2/5;
+    list-style: none;
+    position: relative;
+    top:-25px;
+}
+ul li{
+    margin:15px;
+}
+.current_date{
+    grid-area: 1/6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    color:rgb(45, 166, 170);
+}
 .hourly{
     grid-area: 3/2;
     background-color: rgb(230, 230, 230);
+    display: grid;
+    grid-template-rows: 12% 88%;
 }
+table{
+    text-align: left;
+    margin-bottom: 20px;
+    position: relative;
+    left: 7%;
+}
+th:first-child{
+    width: 200px;
+}
+.second_block_header{
+    font-size: 20px;
+    font-weight: bold;
+    color:rgb(45, 166, 170);
+    width:384.02px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    position: relative;
+    left: 5.5%;
+    top: 5px;
+}
+
 .nearby_places{
     grid-area: 4/2;
     background-color: rgb(230, 230, 230);
+    display: grid;
+    grid-template-rows: 20% 80%;
+}
+.third_block_header{
+    font-size: 20px;
+    font-weight: bold;
+    color:rgb(45, 166, 170);
+    position: relative;
+    top: 15px;
+    left: 6%;
+}
+
+.cities{
+    display: grid;
+    grid-template-columns: 49% 49%;
+    grid-template-rows: 45% 45%;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.city1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 550px;
+    height: 50px;
+    background-color: rgb(219, 219, 219);
+    position: relative;
+    left: 14%;
+}
+.city1_name{
+    display: inline-block;
+    position: relative;
+    left: -150px;
+}
+.weather_icon1{
+    display: inline-block;
+
+}
+.temp1{
+    display: inline-block;
+    position: relative;
+    left: 100px;
+}
+.city2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 550px;
+    height: 50px;
+    background-color: rgb(219, 219, 219);
+    position: relative;
+    left: 6%;
+}
+
+.city2_name{
+    display: inline-block;
+    position: relative;
+    left: -150px;
+}
+.weather_icon2{
+    display: inline-block;
+    position: relative;
+    left: 4.5%;
+}
+.temp2{
+    display: inline-block;
+    position: relative;
+    left: 100px;
+}
+.city3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 550px;
+    height: 50px;
+    background-color: rgb(219, 219, 219);
+    position: relative;
+    left: 14%;
+    top: -20px;
+}
+
+.city3_name{
+    display: inline-block;
+    position: relative;
+    left: -150px;
+    
+}
+.weather_icon3{
+    display: inline-block;
+    position: relative;
+    left: 5px;
+}
+.temp3{
+    display: inline-block;
+    position: relative;
+    left: 105px;
+}
+.city4{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 550px;
+    height: 50px;
+    background-color: rgb(219, 219, 219);
+    position: relative;
+    left: 6%;
+    top: -20px;
+}
+.city4_name{
+    display: inline-block;
+    position: relative;
+    left: -22.5%;
+}
+.weather_icon4{
+    display: inline-block;
+}
+.temp4{
+    display: inline-block;
+    position: relative;
+    left: 13.5%;
 }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./exam_project.js"></script>
+    
     <link rel="stylesheet" href="exam_project_style.css">
     <title>Weather Forecast</title>
 
@@ -18,7 +18,7 @@
             </div>
             
             <form>
-                <input type="text" id="location" placeholder="location"><span class="lens_unicode">&#128269;</span>
+                <input type="text" id="location" placeholder="find a location"><span class="lens_unicode">&#128269;</span>
             </form>
 
         </div>
@@ -35,12 +35,107 @@
         <div class="info_block">
             <div class="current_weather">
                 <div class="first_block_header">CURRENT WEATHER</div>
-                <div class="condition">&#9728;sunny</div>
+                <div class="condition">
+                    <img src="./img/sun2.png" alt="sunny">
+                    <span class="condition_description">Sunny</span>
+                </div>
+                <div class="temperature">29 &#8451;</div>
+                <div class="real_feel">Real Feel 30 &#8451;</div>
+                <div class="current_date">30.06.2018</div>
+                <ul>
+                    <li>Sunrise: <span class="time">7:04 AM</span></li>
+                    <li>Sunset: <span class="time">5:11 PM</span></li>
+                    <li>Duration: <span class="time">10:07 hr</span></li>
+                </ul>
+
             </div>
-            <div class="hourly">HOURLY</div>
-            <div class="nearby_places">NEARBY PLACES</div>
+            <div class="hourly">
+                <div class="second_block_header">HOURLY</div>
+                <table>
+                    <tr>
+                        <th>TODAY</th>
+                        <th>7pm</th>
+                        <th>8pm</th>
+                        <th>9pm</th>
+                        <th>10pm</th>
+                        <th>11pm</th>
+                        <th>12am</th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><img src="./img/sun2.png" alt="sunny"></td>
+                        <td><img src="./img/sun2.png" alt="sunny"></td>
+                        <td><img src="./img/sun2.png" alt="sunny"></td>
+                        <td><img src="./img/sun2.png" alt="sunny"></td>
+                        <td><img src="./img/sun2.png" alt="sunny"></td>
+                        <td><img src="./img/sun2.png" alt="sunny"></td>
+                    </tr>
+                    <tr>
+                        <td>Forecast</td>
+                        <td>Sunny</td>
+                        <td>Sunny</td>
+                        <td>Clear</td>
+                        <td>Clear</td>
+                        <td>Clear</td>
+                        <td>Clear</td>
+                    </tr>
+                    <tr>
+                        <td>Temp (&#8451;)</td>
+                        <td>29&#176;</td>
+                        <td>28&#176;</td>
+                        <td>28&#176;</td>
+                        <td>27&#176;</td>
+                        <td>27&#176;</td>
+                        <td>27&#176;</td>
+                    </tr><tr>
+                        <td>RealFeel</td>
+                        <td>28&#176;</td>
+                        <td>27&#176;</td>
+                        <td>28&#176;</td>
+                        <td>27&#176;</td>
+                        <td>27&#176;</td>
+                        <td>26&#176;</td>
+                    </tr><tr>
+                        <td>Wind(km/h)</td>
+                        <td>11 ESE</td>
+                        <td>9 ESE</td>
+                        <td>6 ESE</td>
+                        <td>6 ESE</td>
+                        <td>6 ESE</td>
+                        <td>7 ESE</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="nearby_places">
+                <div class="third_block_header">NEARBY PLACES</div>
+              <div class="cities">
+                  <div class="city1">
+                    <div class="city1_name">Baladzhary</div>
+                    <div class="weather_icon1"><img src="./img/sun2.png" alt="sunny"></div>
+                    <div class="temp1">36&#8451;</div>
+                  </div>
+                  <div class="city2">
+                     <div class="city2_name">Bailov</div>
+                    <div class="weather_icon2"><img src="./img/sun2.png" alt="sunny"></div>
+                    <div class="temp2">36&#8451;</div>
+                  </div>
+                  <div class="city3">
+                    <div class="city3_name">Badamdar</div>
+                    <div class="weather_icon3"><img src="./img/sun2.png" alt="sunny"></div>
+                    <div class="temp3">29&#8451;</div>
+                  </div>
+                  <div class="city4">
+                    <div class="city4_name">Cherni Gorod</div>
+                    <div class="weather_icon4"><img src="./img/sun2.png" alt="sunny"></div>
+                    <div class="temp4">29&#8451;</div>
+                  </div>
+               </div>
+
+            </div>
         </div>
 
     </div>
+    
 </body>
+<script src="./exam_project.js"></script>
 </html>
