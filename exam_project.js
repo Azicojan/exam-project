@@ -630,6 +630,13 @@ async function currentInfo() {
 
     let apiResponse = await fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${long}&appid=1a82994e07d559edd4eeb784aa36884f`)
     let result = await apiResponse.json()
+    let coordsArray = [];
+    coordsArray.push(lat);
+    coordsArray.push(long);
+
+
+
+    //console.log(coordsArray);
     //console.log(result);
     let weatherIcon = result.current.weather[0].icon;
     document.querySelector("#weatherIcon").innerHTML = `<img src='http://openweathermap.org/img/wn/${weatherIcon}@2x.png'>`;    
@@ -715,7 +722,7 @@ async function currentInfo() {
     }                
 
     let newArrHourly = pickUpHourly();
-    console.log(newArrHourly);
+    //console.log(newArrHourly);
   
     
     for(let i = 0; i < newArrHourly.length; i++){
@@ -723,7 +730,7 @@ async function currentInfo() {
     
         let hour = (newArrHourly[i].dt)*1000;
         const hour_time = new Date(hour);
-        document.querySelector("#myTable").rows[0].cells[i+1].textContent= hour_time.toLocaleTimeString('en-Us');
+        document.querySelector("#myTable").rows[0].cells[i+1].textContent= hour_time.toLocaleTimeString('en-Us',{hour:'2-digit',minute:'2-digit'});
         
         let icon1 = newArrHourly[i].weather[0].icon;
         document.querySelector("#myTable").rows[1].cells[i+1].innerHTML = `<img src='http://openweathermap.org/img/wn/${icon1}@2x.png' >`;
@@ -761,9 +768,12 @@ async function currentInfo() {
         
         
         } 
+        return coordsArray;
 
   }
+  
   currentInfo();
+  
 
 
 //nearby places
@@ -1041,7 +1051,7 @@ async function fiveDayForecast() {
     
             let first_step = (newArr[i].dt)*1000;
             const first_step_time = new Date(first_step);
-            document.querySelector("#fiveDayTable").rows[0].cells[i+1].textContent= first_step_time.toLocaleTimeString('en-Us',{timeZone:resultFiveDays.timezone});
+            document.querySelector("#fiveDayTable").rows[0].cells[i+1].textContent= first_step_time.toLocaleTimeString('en-Us',{timeZone:resultFiveDays.timezone,hour:'2-digit',minute:'2-digit'});
 
             let first_step_icon = newArr[i].weather[0].icon;
             document.querySelector("#fiveDayTable").rows[1].cells[i+1].innerHTML = `<img src='http://openweathermap.org/img/wn/${first_step_icon}@2x.png'>`;
@@ -1183,7 +1193,7 @@ async function fiveDayForecast() {
         
                 let first_step = (newArr[i].dt)*1000;
                 const first_step_time = new Date(first_step);
-                document.querySelector("#fiveDayTable").rows[0].cells[i+1].textContent= first_step_time.toLocaleTimeString('en-Us',{timeZone:resultFiveDays.timezone});
+                document.querySelector("#fiveDayTable").rows[0].cells[i+1].textContent= first_step_time.toLocaleTimeString('en-Us',{timeZone:resultFiveDays.timezone,hour:'2-digit',minute:'2-digit'});
     
                 let first_step_icon = newArr[i].weather[0].icon;
                 document.querySelector("#fiveDayTable").rows[1].cells[i+1].innerHTML = `<img src='http://openweathermap.org/img/wn/${first_step_icon}@2x.png'>`;
@@ -1260,7 +1270,7 @@ async function fiveDayForecast() {
         
                 let first_step2 = (newArr2[i].dt)*1000;
                 const first_step_time2 = new Date(first_step2);
-                document.querySelector("#fiveDayTable").rows[0].cells[i+1].textContent= first_step_time2.toLocaleTimeString('en-Us',{timeZone:resultFiveDays.timezone});
+                document.querySelector("#fiveDayTable").rows[0].cells[i+1].textContent= first_step_time2.toLocaleTimeString('en-Us',{timeZone:resultFiveDays.timezone,hour:'2-digit',minute:'2-digit'});
     
                 let first_step_icon2 = newArr2[i].weather[0].icon;
                 document.querySelector("#fiveDayTable").rows[1].cells[i+1].innerHTML = `<img src='http://openweathermap.org/img/wn/${first_step_icon2}@2x.png'>`;
@@ -1338,7 +1348,7 @@ function highlighted3(){
     
             let first_step3 = (newArr3[i].dt)*1000;
             const first_step_time3 = new Date(first_step3);
-            document.querySelector("#fiveDayTable").rows[0].cells[i+1].textContent= first_step_time3.toLocaleTimeString('en-Us',{timeZone:resultFiveDays.timezone});
+            document.querySelector("#fiveDayTable").rows[0].cells[i+1].textContent= first_step_time3.toLocaleTimeString('en-Us',{timeZone:resultFiveDays.timezone,hour:'2-digit',minute:'2-digit'});
 
             let first_step_icon3 = newArr3[i].weather[0].icon;
             document.querySelector("#fiveDayTable").rows[1].cells[i+1].innerHTML = `<img src='http://openweathermap.org/img/wn/${first_step_icon3}@2x.png'>`;
@@ -1416,7 +1426,7 @@ function highlighted4(){
     
             let first_step4 = (newArr4[i].dt)*1000;
             const first_step_time4 = new Date(first_step4);
-            document.querySelector("#fiveDayTable").rows[0].cells[i+1].textContent= first_step_time4.toLocaleTimeString('en-Us',{timeZone:resultFiveDays.timezone});
+            document.querySelector("#fiveDayTable").rows[0].cells[i+1].textContent= first_step_time4.toLocaleTimeString('en-Us',{timeZone:resultFiveDays.timezone,hour:'2-digit',minute:'2-digit'});
 
             let first_step_icon4 = newArr4[i].weather[0].icon;
             document.querySelector("#fiveDayTable").rows[1].cells[i+1].innerHTML = `<img src='http://openweathermap.org/img/wn/${first_step_icon4}@2x.png'>`;
@@ -1493,7 +1503,7 @@ function highlighted4(){
     
             let first_step5 = (newArr5[i].dt)*1000;
             const first_step_time5 = new Date(first_step5);
-            document.querySelector("#fiveDayTable").rows[0].cells[i+1].textContent= first_step_time5.toLocaleTimeString('en-Us',{timeZone:resultFiveDays.timezone});
+            document.querySelector("#fiveDayTable").rows[0].cells[i+1].textContent= first_step_time5.toLocaleTimeString('en-Us',{timeZone:resultFiveDays.timezone,hour:'2-digit',minute:'2-digit'});
 
             let first_step_icon5 = newArr5[i].weather[0].icon;
             document.querySelector("#fiveDayTable").rows[1].cells[i+1].innerHTML = `<img src='http://openweathermap.org/img/wn/${first_step_icon5}@2x.png'>`;
@@ -1547,9 +1557,13 @@ searchButton.addEventListener('click',showCity);
 let newCity = '';    
 function showCity(e){
    e.preventDefault();
-   //console.log(searchLocation.value);
    newCity = searchLocation.value;
-   //console.log(newCity);
+   error.style.display='none';
+   error.replaceWith(infoBlock);
+   today.addEventListener('click',todayFixed);
+   if(today){
+    searchButton.addEventListener('click',todayFixed);
+   }
 }
 
 
@@ -1569,24 +1583,59 @@ searchButton.addEventListener('click',cityInfo);
 
 async function cityInfo(){
 
+    
+
+    
+
     let apiResponse2 = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${newCity}&limit=5&appid=1a82994e07d559edd4eeb784aa36884f`);
     let result2 = await apiResponse2.json()
-    console.log(result2);
+    //console.log(result2);
 
-    if(result2.length === 0){
-        document.querySelector(".info_block").innerHTML = "<img src = './img/404_error.png' alt='There is no such city.'style='width:1550px;height:700px;'>";
-        alert("Sorry! There is no such city. You might have made a mistake. Please renew the page in order to continue.");
-    }
-    else {
+    try {
+
+        if(result2.length === 0) {
+            
+            error.innerHTML = `<p style="font-size:50px;
+            margin-right:30px">404</p> ${newCity[0].toUpperCase()+newCity.substring(1)} could not be found. Please enter a different location.`;
+            error.style.cssText=`
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            width:100%;
+            height:880px;
+            background-color: rgba(0,0,0,0.2);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size:30px;
+            color:#696969;`
+            infoBlock.replaceWith(error);
+            today.removeEventListener('click',todayFixed);
+            today.addEventListener('click',todayError);
+            function todayError(){
+                today.style.cssText=`
+                
+                border-right: 1px solid grey;
+                border-left: 1px solid grey;
+                border-bottom: 3px solid rgb(45, 166, 170);`;
+                
+                fiveDay.style.cssText=`
+                border-style:none;` 
+            }
+        }
+         else {
+
+             
+        
+
+        
     
     let lat = result2[0].lat;
     let long = result2[0].lon;
-    console.log(lat);
-    console.log(long);
+    //console.log(lat);
+   // console.log(long);
     
     let apiResponseCity = await fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${long}&appid=1a82994e07d559edd4eeb784aa36884f`)
     let finalOutcome = await apiResponseCity.json()
-    console.log(finalOutcome);
+    //console.log(finalOutcome);
 
     let icon = finalOutcome.current.weather[0].icon
     document.querySelector("#weatherIcon").src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
@@ -1731,7 +1780,7 @@ async function cityInfo(){
  }                
 
  let newArrHourly = pickUpHourly();
- console.log(newArrHourly);
+ //console.log(newArrHourly);
 
  
  for(let i = 0; i < newArrHourly.length; i++){
@@ -1739,7 +1788,7 @@ async function cityInfo(){
  
      let hour = (newArrHourly[i].dt)*1000;
      const hour_time = new Date(hour);
-     document.querySelector("#myTable").rows[0].cells[i+1].textContent= hour_time.toLocaleTimeString('en-Us',{timeZone:finalOutcome.timezone});
+     document.querySelector("#myTable").rows[0].cells[i+1].textContent= hour_time.toLocaleTimeString('en-Us',{timeZone:finalOutcome.timezone,hour:'2-digit',minute:'2-digit'});
      
      let icon1 = newArrHourly[i].weather[0].icon;
      document.querySelector("#myTable").rows[1].cells[i+1].innerHTML = `<img src='http://openweathermap.org/img/wn/${icon1}@2x.png' >`;
@@ -1824,35 +1873,87 @@ let apiResponseNearbyCity4 = await fetch(`https://api.openweathermap.org/data/2.
 
 }
 AreasAcrossTheWorld();
-
-
+        }
     }
+
+catch (err) {
+    console.log(err);
+    
+          
+    
+        
+}
     
     
 }
 
 
+let error = document.createElement('div');
+error.className = 'error';
+
 
 searchButton.addEventListener('click',fiveDayForecast);
+
 async function fiveDayForecast() {
     
     
+
+ 
       let apiResponse = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${newCity}&limit=5&appid=1a82994e07d559edd4eeb784aa36884f`);
       let result2 = await apiResponse.json()
-      console.log(result2);
-      console.log(newCity);
+      //console.log(result2);
+      //console.log(newCity);
+
+    try {  
+
+        if(result2.length === 0) {
+           
+            error.innerHTML = `<p style="font-size:50px;
+            margin-right:30px">404</p> ${newCity[0].toUpperCase()+newCity.substring(1)} could not be found. Please enter a different location.`;
+            error.style.cssText=`
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            width:100%;
+            height:880px;
+            background-color: rgba(0,0,0,0.2);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size:30px;
+            color:#696969;`
+            infoBlock.replaceWith(error);
+            today.removeEventListener('click',todayFixed);
+            today.addEventListener('click',todayError);
+            function todayError(){
+                today.style.cssText=`
+                
+                border-right: 1px solid grey;
+                border-left: 1px solid grey;
+                border-bottom: 3px solid rgb(45, 166, 170);`;
+                
+                fiveDay.style.cssText=`
+                border-style:none;` 
+            }
+        }
+
+        else{
+
+        
        
+        
+
     let lat = result2[0].lat;
     let long = result2[0].lon;
 
     let apiResponseCity = await fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${long}&appid=1a82994e07d559edd4eeb784aa36884f&units=metric`)
     let finalOutcome = await apiResponseCity.json()
-    console.log(finalOutcome);
+   // console.log(finalOutcome);
   
   
   let apiResponseFiveDays = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=1a82994e07d559edd4eeb784aa36884f&units=metric`);
   let resultFiveDays = await apiResponseFiveDays.json()
-  console.log(resultFiveDays);
+  //console.log(resultFiveDays);
+
+    
  // console.log(resultFiveDays.list[0]);
   
 
@@ -1861,7 +1962,7 @@ async function fiveDayForecast() {
 
 
   const d1 = new Date((finalOutcome.daily[0].dt)*1000).toLocaleDateString('default',{timeZone:finalOutcome.timezone});
-  console.log(d1);
+ // console.log(d1);
  
   function getDayName (date = new Date(), locale = 'en-US'){
     return date.toLocaleDateString(locale, {weekday:'long'});
@@ -2164,7 +2265,7 @@ async function fiveDayForecast() {
 
 
   let newArr = pickUp();
-  console.log(newArr);
+  //console.log(newArr);
  
   
   for(let i = 0; i < newArr.length; i++){
@@ -2172,7 +2273,7 @@ async function fiveDayForecast() {
   
           let first_step = (newArr[i].dt)*1000;
           const first_step_time = new Date(first_step);
-          document.querySelector("#fiveDayTable").rows[0].cells[i+1].textContent= first_step_time.toLocaleTimeString('en-Us',{timeZone:finalOutcome.timezone});
+          document.querySelector("#fiveDayTable").rows[0].cells[i+1].textContent= first_step_time.toLocaleTimeString('en-Us',{timeZone:finalOutcome.timezone,hour:'2-digit',minute:'2-digit'});
 
           let first_step_icon = newArr[i].weather[0].icon;
           document.querySelector("#fiveDayTable").rows[1].cells[i+1].innerHTML = `<img src='http://openweathermap.org/img/wn/${first_step_icon}@2x.png'>`;
@@ -2314,7 +2415,7 @@ async function fiveDayForecast() {
       
               let first_step = (newArr[i].dt)*1000;
               const first_step_time = new Date(first_step);
-              document.querySelector("#fiveDayTable").rows[0].cells[i+1].textContent= first_step_time.toLocaleTimeString('en-Us',{timeZone:finalOutcome.timezone});
+              document.querySelector("#fiveDayTable").rows[0].cells[i+1].textContent= first_step_time.toLocaleTimeString('en-Us',{timeZone:finalOutcome.timezone,hour:'2-digit',minute:'2-digit'});
   
               let first_step_icon = newArr[i].weather[0].icon;
               document.querySelector("#fiveDayTable").rows[1].cells[i+1].innerHTML = `<img src='http://openweathermap.org/img/wn/${first_step_icon}@2x.png'>`;
@@ -2392,7 +2493,7 @@ async function fiveDayForecast() {
       
               let first_step2 = (newArr2[i].dt)*1000;
               const first_step_time2 = new Date(first_step2);
-              document.querySelector("#fiveDayTable").rows[0].cells[i+1].textContent= first_step_time2.toLocaleTimeString('en-Us',{timeZone:finalOutcome.timezone});
+              document.querySelector("#fiveDayTable").rows[0].cells[i+1].textContent= first_step_time2.toLocaleTimeString('en-Us',{timeZone:finalOutcome.timezone,hour:'2-digit',minute:'2-digit'});
   
               let first_step_icon2 = newArr2[i].weather[0].icon;
               document.querySelector("#fiveDayTable").rows[1].cells[i+1].innerHTML = `<img src='http://openweathermap.org/img/wn/${first_step_icon2}@2x.png'>`;
@@ -2470,7 +2571,7 @@ function highlighted3(){
   
           let first_step3 = (newArr3[i].dt)*1000;
           const first_step_time3 = new Date(first_step3);
-          document.querySelector("#fiveDayTable").rows[0].cells[i+1].textContent= first_step_time3.toLocaleTimeString('en-Us',{timeZone:finalOutcome.timezone});
+          document.querySelector("#fiveDayTable").rows[0].cells[i+1].textContent= first_step_time3.toLocaleTimeString('en-Us',{timeZone:finalOutcome.timezone,hour:'2-digit',minute:'2-digit'});
 
           let first_step_icon3 = newArr3[i].weather[0].icon;
           document.querySelector("#fiveDayTable").rows[1].cells[i+1].innerHTML = `<img src='http://openweathermap.org/img/wn/${first_step_icon3}@2x.png'>`;
@@ -2548,7 +2649,7 @@ function highlighted4(){
   
           let first_step4 = (newArr4[i].dt)*1000;
           const first_step_time4 = new Date(first_step4);
-          document.querySelector("#fiveDayTable").rows[0].cells[i+1].textContent= first_step_time4.toLocaleTimeString('en-Us',{timeZone:finalOutcome.timezone});
+          document.querySelector("#fiveDayTable").rows[0].cells[i+1].textContent= first_step_time4.toLocaleTimeString('en-Us',{timeZone:finalOutcome.timezone,hour:'2-digit',minute:'2-digit'});
 
           let first_step_icon4 = newArr4[i].weather[0].icon;
           document.querySelector("#fiveDayTable").rows[1].cells[i+1].innerHTML = `<img src='http://openweathermap.org/img/wn/${first_step_icon4}@2x.png'>`;
@@ -2617,7 +2718,7 @@ function highlighted4(){
 
 
   let newArr5 = pickUp5();
-  console.log(newArr5);
+  //console.log(newArr5);
  
   
   for(let i = 0; i < newArr5.length; i++){
@@ -2625,7 +2726,7 @@ function highlighted4(){
   
           let first_step5 = (newArr5[i].dt)*1000;
           const first_step_time5 = new Date(first_step5);
-          document.querySelector("#fiveDayTable").rows[0].cells[i+1].textContent= first_step_time5.toLocaleTimeString('en-Us',{timeZone:finalOutcome.timezone});
+          document.querySelector("#fiveDayTable").rows[0].cells[i+1].textContent= first_step_time5.toLocaleTimeString('en-Us',{timeZone:finalOutcome.timezone,hour:'2-digit',minute:'2-digit'});
 
           let first_step_icon5 = newArr5[i].weather[0].icon;
           document.querySelector("#fiveDayTable").rows[1].cells[i+1].innerHTML = `<img src='http://openweathermap.org/img/wn/${first_step_icon5}@2x.png'>`;
@@ -2660,21 +2761,32 @@ function highlighted4(){
       
       } 
 
-  }
+     }
+    
+    }
 
-
+    }
   
+  
+  catch (err) {
+
+    console.log(err);
+
+   }
 }
 
 
 
-let d = new Date(1673082000000);
-let c = new Date(1673082000000).toLocaleDateString('default',{timeZone:'America/Anchorage'});
-console.log(d); 
-console.log(c);  
         
 
-       
+/*function funcA(c){
+    function funcB(d){
+     return c+d;
+    }
+    return funcB;
+ }
+  console.log(funcA(5)(10));*/
+    
 
     
     
